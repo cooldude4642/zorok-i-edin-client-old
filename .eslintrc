@@ -1,0 +1,676 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:unicorn/recommended",
+    "@feature-sliced"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "import",
+    "boundaries",
+    "unicorn",
+    "canonical"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    // eslint/*
+    "@typescript-eslint/block-spacing": [2, "always"],
+    "@typescript-eslint/brace-style": [2, "1tbs", { "allowSingleLine": false }],
+    "@typescript-eslint/indent": [2, "tab"],
+    "@typescript-eslint/lines-around-comment": 2,
+    "@typescript-eslint/no-extra-parens": [
+      2,
+      "all",
+      {
+        "returnAssign": false,
+        "ignoreJSX": "multi-line",
+        "nestedBinaryExpressions": false,
+        "ternaryOperandBinaryExpressions": false,
+        "enforceForArrowConditionals": false
+      }
+    ],
+    "@typescript-eslint/no-magic-numbers": [
+      2,
+      {
+        "ignoreArrayIndexes": true,
+        "enforceConst": true,
+        "ignoreTypeIndexes": true,
+        "ignoreEnums": true,
+        "ignore": [0, 1]
+      }
+    ],
+    "@typescript-eslint/padding-line-between-statements": [
+      2,
+      // return
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      // blocks
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "block-like"
+      },
+      {
+        "blankLine": "always",
+        "prev": "block-like",
+        "next": "*"
+      },
+      // const
+      {
+        "blankLine": "always",
+        "prev": "singleline-const",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "singleline-const"
+      },
+      {
+        "blankLine": "never",
+        "prev": "singleline-const",
+        "next": "singleline-const"
+      },
+      {
+        "blankLine": "always",
+        "prev": "multiline-const",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "multiline-const"
+      },
+      // let
+      {
+        "blankLine": "always",
+        "prev": "singleline-let",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "singleline-let"
+      },
+      {
+        "blankLine": "never",
+        "prev": "singleline-let",
+        "next": "singleline-let"
+      },
+      {
+        "blankLine": "always",
+        "prev": "multiline-let",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "multiline-let"
+      },
+      // expressions
+      {
+        "blankLine": "always",
+        "prev": "expression",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "expression"
+      },
+      {
+        "blankLine": "never",
+        "prev": "expression",
+        "next": "expression"
+      },
+      {
+        "blankLine": "always",
+        "prev": "multiline-expression",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "multiline-expression"
+      },
+      // imports
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "import"
+      },
+      {
+        "blankLine": "always",
+        "prev": "import",
+        "next": "*"
+      },
+      {
+        "blankLine": "never",
+        "prev": "import",
+        "next": "import"
+      },
+      // exports
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "export"
+      },
+      {
+        "blankLine": "always",
+        "prev": "export",
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": "export",
+        "next": "export"
+      }
+    ], //fix
+    "@typescript-eslint/quotes": [
+      2,
+      "single",
+      { "allowTemplateLiterals": true }
+    ],
+    "@typescript-eslint/semi": [2, "never"],
+    "@typescript-eslint/no-unused-expressions": [
+      2,
+      { "allowShortCircuit": true }
+    ],
+    "no-constant-binary-expression": 2,
+    "capitalized-comments": 2,
+    // uncomment-before-release "complexity": [2, 3],
+    "curly": [2, "all"],
+    "func-style": [2, "declaration", { "allowArrowFunctions": true }],
+    "logical-assignment-operators": [2, "never"],
+    "linebreak-style": [2, "windows"],
+    // uncomment-before-release "max-lines": [
+    // uncomment-before-release   2,
+    // uncomment-before-release   {
+    // uncomment-before-release     "max": 100,
+    // uncomment-before-release     "skipBlankLines": true,
+    // uncomment-before-release     "skipComments": true
+    // uncomment-before-release   }
+    // uncomment-before-release ],
+    // uncomment-before-release "max-lines-per-function": [
+    // uncomment-before-release   2,
+    // uncomment-before-release   {
+    // uncomment-before-release     "max": 50,
+    // uncomment-before-release     "skipBlankLines": true,
+    // uncomment-before-release     "skipComments": true
+    // uncomment-before-release   }
+    // uncomment-before-release ],
+    "max-nested-callbacks": [2, { "max": 2 }],
+    "max-params": [2, { "max": 2 }],
+    // uncomment-before-release "max-statements": [2, { "max": 8 }],
+    "multiline-comment-style": 2,
+    "no-confusing-arrow": 2,
+    "no-empty-static-block": 2,
+    "no-implicit-coercion": [2, { "allow": ["!!"] }],
+    "no-inline-comments": 2,
+    "no-negated-condition": 2,
+    "no-restricted-exports": ["error", { "restrictedNamedExports": ["then"] }],
+    "no-restricted-syntax": [
+      2,
+      // "ArrayExpression",
+      // "ArrayPattern",
+      // "ArrowFunctionExpression",
+      // "AssignmentExpression",
+      // "AssignmentPattern",
+      // "AwaitExpression",
+      // "BinaryExpression",
+      // "BlockStatement",
+      "BreakStatement",
+      // "CallExpression",
+      "CatchClause",
+      // "ChainExpression",
+      "ClassBody",
+      "ClassDeclaration",
+      "ClassExpression",
+      // "ConditionalExpression",
+      "ContinueStatement",
+      "DebuggerStatement",
+      "DoWhileStatement",
+      "EmptyStatement",
+      "ExperimentalRestProperty",
+      "ExperimentalSpreadProperty",
+      "ExportAllDeclaration",
+      // "ExportDefaultDeclaration",
+      // "ExportNamedDeclaration",
+      // "ExportSpecifier",
+      // "ExpressionStatement",
+      "ForInStatement",
+      // "ForOfStatement",
+      // "ForStatement",
+      // "FunctionDeclaration",
+      "FunctionExpression",
+      // "Identifier",
+      // "IfStatement",
+      // "ImportDeclaration",
+      // "ImportDefaultSpecifier",
+      "ImportExpression",
+      "ImportNamespaceSpecifier",
+      // "ImportSpecifier",
+      // "JSXAttribute",
+      // "JSXClosingElement",
+      // "JSXClosingFragment",
+      // "JSXElement",
+      "JSXEmptyExpression",
+      // "JSXExpressionContainer",
+      // "JSXFragment",
+      // "JSXIdentifier",
+      "JSXMemberExpression",
+      "JSXNamespacedName",
+      // "JSXOpeningElement",
+      // "JSXOpeningFragment",
+      // "JSXSpreadAttribute",
+      "JSXSpreadChild",
+      // "JSXText",
+      "LabeledStatement",
+      // "Literal",
+      // "LogicalExpression",
+      // "MemberExpression",
+      "MetaProperty",
+      "MethodDefinition",
+      // "NewExpression",
+      // "ObjectExpression",
+      // "ObjectPattern",
+      "PrivateIdentifier",
+      // "Program",
+      // "Property",
+      "PropertyDefinition",
+      // "RestElement",
+      // "ReturnStatement",
+      "SequenceExpression",
+      // "SpreadElement",
+      "StaticBlock",
+      "Super",
+      "SwitchCase",
+      "SwitchStatement",
+      "TaggedTemplateExpression",
+      // "TemplateElement",
+      // "TemplateLiteral",
+      "ThisExpression",
+      "ThrowStatement",
+      "TryStatement",
+      // "UnaryExpression",
+      // "UpdateExpression",
+      // "VariableDeclaration",
+      // "VariableDeclarator",
+      "WhileStatement",
+      "WithStatement",
+      "YieldExpression"
+    ], //fix
+    "operator-assignment": [2, "never"],
+    "prefer-object-has-own": 2,
+    /* "sort-keys": [1, "asc", {
+			"caseSensitive": true,
+			"natural": true
+		}], */
+    "array-bracket-newline": [
+      2,
+      {
+        "multiline": true,
+        "minItems": 5
+      }
+    ],
+    "array-element-newline": [
+      2,
+      {
+        "multiline": true,
+        "minItems": 5
+      }
+    ],
+    "function-paren-newline": [2, "multiline"],
+    "jsx-quotes": [2, "prefer-single"],
+    "max-len": [
+      2,
+      {
+        "code": 80,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "max-statements-per-line": [2, { "max": 1 }],
+    "multiline-ternary": [2, "always-multiline"],
+    "newline-per-chained-call": [2, { "ignoreChainWithDepth": 2 }],
+    "no-tabs": [2, { "allowIndentationTabs": true }],
+    "no-plusplus": 0,
+    "object-curly-newline": [
+      2,
+      {
+        "ObjectExpression": {
+          "minProperties": 5,
+          "multiline": true,
+          "consistent": true
+        },
+        "ObjectPattern": {
+          "minProperties": 5,
+          "multiline": true,
+          "consistent": true
+        },
+        "ImportDeclaration": {
+          "minProperties": 8,
+          "multiline": true,
+          "consistent": true
+        },
+        "ExportDeclaration": {
+          "minProperties": 8,
+          "multiline": true,
+          "consistent": true
+        }
+      }
+    ],
+    "operator-linebreak": [
+      2,
+      "none",
+      {
+        "overrides": {
+          "?": "before",
+          ":": "before"
+        }
+      }
+    ],
+    "padded-blocks": [2, "never"],
+    "template-curly-spacing": [2, "always"],
+
+    // @typescript-eslint/*
+    "@typescript-eslint/consistent-type-imports": [
+      2,
+      {
+        "fixStyle": "separate-type-imports",
+        "prefer": "type-imports"
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      2,
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": false
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+        }
+      }
+    ],
+    "@typescript-eslint/member-ordering": [
+      2,
+      {
+        "default": {
+          "memberTypes": [
+            "signature",
+            "call-signature",
+
+            // Fields
+            "public-static-field",
+            "protected-static-field",
+            "private-static-field",
+            "#private-static-field",
+
+            "public-decorated-field",
+            "protected-decorated-field",
+            "private-decorated-field",
+
+            "public-instance-field",
+            "protected-instance-field",
+            "private-instance-field",
+            "#private-instance-field",
+
+            "public-abstract-field",
+            "protected-abstract-field",
+
+            "public-field",
+            "protected-field",
+            "private-field",
+            "#private-field",
+
+            "static-field",
+            "instance-field",
+            "abstract-field",
+
+            "decorated-field",
+
+            "field",
+
+            // Static initialization
+            "static-initialization",
+
+            // Constructors
+            "public-constructor",
+            "protected-constructor",
+            "private-constructor",
+
+            "constructor",
+
+            // Getters
+            "public-static-get",
+            "protected-static-get",
+            "private-static-get",
+            "#private-static-get",
+
+            "public-decorated-get",
+            "protected-decorated-get",
+            "private-decorated-get",
+
+            "public-instance-get",
+            "protected-instance-get",
+            "private-instance-get",
+            "#private-instance-get",
+
+            "public-abstract-get",
+            "protected-abstract-get",
+
+            "public-get",
+            "protected-get",
+            "private-get",
+            "#private-get",
+
+            "static-get",
+            "instance-get",
+            "abstract-get",
+
+            "decorated-get",
+
+            "get",
+
+            // Setters
+            "public-static-set",
+            "protected-static-set",
+            "private-static-set",
+            "#private-static-set",
+
+            "public-decorated-set",
+            "protected-decorated-set",
+            "private-decorated-set",
+
+            "public-instance-set",
+            "protected-instance-set",
+            "private-instance-set",
+            "#private-instance-set",
+
+            "public-abstract-set",
+            "protected-abstract-set",
+
+            "public-set",
+            "protected-set",
+            "private-set",
+            "#private-set",
+
+            "static-set",
+            "instance-set",
+            "abstract-set",
+
+            "decorated-set",
+
+            "set",
+
+            // Methods
+            "public-static-method",
+            "protected-static-method",
+            "private-static-method",
+            "#private-static-method",
+
+            "public-decorated-method",
+            "protected-decorated-method",
+            "private-decorated-method",
+
+            "public-instance-method",
+            "protected-instance-method",
+            "private-instance-method",
+            "#private-instance-method",
+
+            "public-abstract-method",
+            "protected-abstract-method",
+
+            "public-method",
+            "protected-method",
+            "private-method",
+            "#private-method",
+
+            "static-method",
+            "instance-method",
+            "abstract-method",
+
+            "decorated-method",
+
+            "method"
+          ],
+          "optionalityOrder": "required-first",
+          "order": "as-written"
+        }
+      }
+    ], //fix
+    "@typescript-eslint/method-signature-style": [2, "method"],
+    "@typescript-eslint/no-import-type-side-effects": 2,
+    "@typescript-eslint/no-require-imports": 2,
+    "@typescript-eslint/no-useless-empty-export": 2,
+    "@typescript-eslint/parameter-properties": 2,
+    "@typescript-eslint/sort-type-constituents": 2,
+    "@typescript-eslint/type-annotation-spacing": 2,
+    "@typescript-eslint/space-before-function-paren": [2, "always"],
+
+    // react/*
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": ["function-declaration"],
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/hook-use-state": 2,
+    "react/jsx-curly-brace-presence": [
+      2,
+      {
+        "props": "never",
+        "children": "never",
+        "propElementValues": "always"
+      }
+    ],
+    "react/jsx-curly-spacing": [
+      2,
+      {
+        "when": "always",
+        "children": true
+      }
+    ],
+    "react/jsx-indent": [2, "tab"],
+    "react/jsx-indent-props": [2, "tab"],
+    "react/jsx-max-depth": [2, { "max": 5 }],
+    "react/jsx-max-props-per-line": [
+      2,
+      {
+        "maximum": 1,
+        "when": "always"
+      }
+    ],
+    "react/jsx-newline": [2, { "prevent": true }],
+    "react/jsx-pascal-case": 2,
+    "react/jsx-sort-props": [
+      2,
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "reservedFirst": ["key", "ref"]
+      }
+    ], //fix
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "beforeSelfClosing": "never",
+        "beforeClosing": "never"
+      }
+    ],
+    "react/jsx-props-no-spreading": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
+
+    // import/*
+    "import/prefer-default-export": 0,
+
+    // unicorn/*
+    "unicorn/filename-case": [2, { "case": "kebabCase" }],
+    "unicorn/prevent-abbreviations": 0,
+    "unicorn/no-null": 0,
+
+    // canonical/*
+    "canonical/destructuring-property-newline": [
+      2,
+      { "allowAllPropertiesOnSameLine": true }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        // @typescript-eslint/*
+        "@typescript-eslint/consistent-type-exports": 2,
+        "@typescript-eslint/naming-convention": [
+          2,
+          {
+            "selector": "default",
+            "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
+            "filter": {
+              "regex": "^\\.?([a-z]+|[0-9]+)(?:-{1}([a-z]+|[0-9]+))*$",
+              "match": false
+            }
+          }
+        ], //fix
+        "@typescript-eslint/no-unnecessary-qualifier": 2,
+        "@typescript-eslint/prefer-readonly": 2,
+        "@typescript-eslint/strict-boolean-expressions": 2,
+        "@typescript-eslint/switch-exhaustiveness-check": 2
+      }
+    }
+  ]
+}

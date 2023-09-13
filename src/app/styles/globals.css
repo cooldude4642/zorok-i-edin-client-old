@@ -1,0 +1,5 @@
+html {
+  font-family: var(--typeface-brand), Helvetica, sans-serif;
+  color: rgb(var(--color-on-surface-dim));
+  background-color: rgb(var(--color-background));
+}
