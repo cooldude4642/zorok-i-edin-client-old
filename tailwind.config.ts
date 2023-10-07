@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+/* eslint-disable max-lines-per-function */
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
 
