@@ -4,8 +4,10 @@
 
 @layer base {
 	:root {
-		--typeface-brand: 'Jost';
-		--typeface-plain: 'Jost';
+		--typeface-brand: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+			'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+			'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+		--typeface-plain: var(--typeface-brand);
 		--typeface-weight-regular: 400;
 		--typeface-weight-medium: 500;
 		--typeface-weight-bold: 700;
