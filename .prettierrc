@@ -1,8 +1,10 @@
 {
 	"endOfLine": "crlf",
+	"plugins": ["prettier-plugin-tailwindcss"],
 	"printWidth": 100,
 	"semi": false,
 	"singleAttributePerLine": true,
 	"singleQuote": true,
+	"tailwindFunctions": ["cva"],
 	"useTabs": true
 }
