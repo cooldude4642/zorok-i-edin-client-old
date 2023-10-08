@@ -27,6 +27,7 @@
 				"canonical"
 			],
 			"rules": {
+				"react/button-has-type": 0,
 				"@typescript-eslint/block-spacing": [2, "always"],
 				"@typescript-eslint/brace-style": [
 					2,
@@ -345,20 +346,8 @@
 				"@typescript-eslint/strict-boolean-expressions": 2,
 				"@typescript-eslint/switch-exhaustiveness-check": 2,
 				"@typescript-eslint/type-annotation-spacing": 2,
-				"array-bracket-newline": [
-					2,
-					{
-						"minItems": 5,
-						"multiline": true
-					}
-				],
-				"array-element-newline": [
-					2,
-					{
-						"minItems": 5,
-						"multiline": true
-					}
-				],
+				"array-bracket-newline": [2, "consistent"],
+				"array-element-newline": [2, "consistent"],
 				"canonical/destructuring-property-newline": [
 					2,
 					{
