@@ -44,3 +44,4 @@ Thumbs.db
 .prettiercache
 .eslintcache
 .stylelintcache
+next-env.d.ts
